@@ -1,13 +1,44 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  LANDING PAGE — FOODSERVICE | Orgânico do Chico
+  ============================================================
+  Captação de CNPJ de restaurantes → cupom de 25% pra comprar no site.
+
+  1) PLANILHA DE CADASTROS — cole a URL do Apps Script (/exec) na variável
+     URL_PLANILHA logo abaixo. Passo a passo no LEIA-ME.md.
+  2) WHATSAPP — troque SEUNUMERO pelo número com DDI+DDD (ex: 5531999999999).
+  3) FOTO do hero — hoje é ilustração de marca. Para usar foto real, troque
+     toda a div .hero-art por: <img src="sua-foto.jpg" alt="...">
+  ============================================================
+-->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orgânico do Chico para Restaurantes | Hortifruti orgânico direto na sua cozinha</title>
-<meta name="description" content="Frutas, legumes e verduras orgânicas para restaurantes, bares e cozinhas profissionais de BH e região. Cadastre seu CNPJ e receba condições exclusivas.">
+<title>Orgânico do Chico para Restaurantes — Foodservice em BH</title>
+<meta name="description" content="Hortifrúti orgânico para restaurantes, bares e cozinhas profissionais de Belo Horizonte. Cadastre seu CNPJ e ganhe 25% de desconto para comprar direto no site.">
+<meta name="theme-color" content="#1C5A3A">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="logo-organico-do-chico-verde.png">
+<link rel="apple-touch-icon" href="logo-organico-do-chico-fundo-verde.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Orgânico do Chico">
+<meta property="og:title" content="Orgânico do Chico para Restaurantes">
+<meta property="og:description" content="Hortifrúti orgânico para foodservice em BH. Cadastre seu CNPJ e ganhe 25% de desconto pra comprar direto no site.">
+<meta property="og:url" content="https://guilhermemacielf.github.io/foodservice/">
+<meta property="og:image" content="https://guilhermemacielf.github.io/foodservice/logo-organico-do-chico-fundo-verde.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orgânico do Chico para Restaurantes">
+<meta name="twitter:description" content="Hortifrúti orgânico para foodservice em BH. 25% de desconto pra quem cadastra o CNPJ.">
+<meta name="twitter:image" content="https://guilhermemacielf.github.io/foodservice/logo-organico-do-chico-fundo-verde.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- ============================================================= -->
-<!-- ATENÇÃO: cole aqui a URL do seu App da Planilha (passo no LEIA-ME) -->
+<!-- ATENÇÃO: cole aqui a URL do App da Planilha (passo no LEIA-ME) -->
 <script>
   const URL_PLANILHA = "COLE_AQUI_A_URL_DO_APPS_SCRIPT";
 </script>
@@ -15,235 +46,315 @@
 
 <style>
   :root{
-    --verde:#2f7a3d;
-    --verde-escuro:#1e5128;
-    --verde-claro:#eaf5ec;
-    --terra:#c97b30;
-    --texto:#243024;
-    --cinza:#5b6b5d;
-    --borda:#d8e3da;
-    --branco:#ffffff;
-    --fundo:#f7faf7;
+    color-scheme:light;
+    --cream:#F6F1E7; --cream2:#FBF7EE; --white:#FFFFFF;
+    --ink:#2C2A20; --body:#3A3424; --muted:#8A7F68; --line:#E4DAC4;
+    --green:#1C5A3A; --green-d:#103724; --green-50:#E7F1EB;
+    --terra:#C2542B; --terra-d:#712B13; --terra-50:#FAECE7;
+    --gold:#B0750F; --gold-d:#633806; --gold-50:#FAEEDA;
+    --sans:'Inter',system-ui,sans-serif; --disp:'Fraunces',Georgia,serif;
+    --maxw:1080px; --r:16px;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--texto);
-    background:var(--fundo);
-    line-height:1.6;
-  }
-  .container{max-width:1100px;margin:0 auto;padding:0 20px;}
-  a{color:inherit;text-decoration:none;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--body);background:var(--cream);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--disp);color:var(--ink);line-height:1.1;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block;border-radius:var(--r)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:8px}
+  .eyebrow svg{width:16px;height:16px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s ease,box-shadow .2s ease}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .btn-primary{background:var(--green);color:var(--cream2)}
+  .btn-primary:hover{background:var(--green-d);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--green-d);border-color:var(--green)}
+  .btn-ghost:hover{background:var(--green-50)}
 
-  /* ---------- Cabeçalho ---------- */
-  header{
-    background:var(--branco);
-    border-bottom:1px solid var(--borda);
-    position:sticky;top:0;z-index:50;
-  }
-  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto;}
-  .logo{font-weight:800;font-size:1.25rem;color:var(--verde-escuro);display:flex;align-items:center;gap:8px;}
-  .logo span{font-size:1.5rem;}
-  .btn{
-    display:inline-block;background:var(--verde);color:#fff;font-weight:700;
-    padding:12px 24px;border-radius:999px;border:none;cursor:pointer;
-    font-size:1rem;transition:background .15s ease,transform .05s ease;
-  }
-  .btn:hover{background:var(--verde-escuro);}
-  .btn:active{transform:scale(.98);}
-  .btn-grande{padding:16px 36px;font-size:1.1rem;}
-  .header .btn{padding:10px 20px;font-size:.95rem;}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:var(--maxw);margin:0 auto}
+  .logo img{height:38px;width:auto;display:block;border-radius:0}
+  .nav .logo{padding:4px 0}
+  .nav-links{display:none;gap:28px;font-size:15px;font-weight:500;color:var(--body)}
+  .nav-links a:hover{color:var(--green)}
+  .nav .btn{padding:10px 20px;font-size:15px}
+  @media(min-width:860px){.nav-links{display:flex}}
 
-  /* ---------- Hero ---------- */
-  .hero{
-    background:linear-gradient(160deg,var(--verde-claro) 0%,#fbfdfb 100%);
-    padding:64px 0 72px;
-  }
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
-  .hero h1{font-size:2.8rem;line-height:1.15;color:var(--verde-escuro);margin-bottom:18px;font-weight:800;}
-  .hero h1 em{color:var(--terra);font-style:normal;}
-  .hero p.sub{font-size:1.2rem;color:var(--cinza);margin-bottom:28px;max-width:520px;}
-  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
-  .tag{background:#fff;border:1px solid var(--borda);border-radius:999px;padding:6px 14px;font-size:.9rem;color:var(--verde-escuro);font-weight:600;}
-  .hero-img{
-    background:var(--verde);border-radius:24px;aspect-ratio:4/3;
-    display:flex;align-items:center;justify-content:center;font-size:6rem;
-    box-shadow:0 20px 40px -16px rgba(30,81,40,.5);
-  }
+  /* hero */
+  .hero{padding:54px 0 30px}
+  .hero-grid{display:grid;gap:34px;align-items:center}
+  @media(min-width:860px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}.hero{padding:72px 0 46px}}
+  .hero h1{font-size:clamp(38px,6vw,62px);font-weight:600;margin:18px 0 16px;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero p.lead{font-size:clamp(17px,2.2vw,20px);color:var(--body);max-width:34ch;margin-bottom:28px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-note{margin-top:18px;font-size:14px;color:var(--muted)}
 
-  /* ---------- Faixa de destaque ---------- */
-  .faixa{background:var(--verde-escuro);color:#fff;text-align:center;padding:18px;font-size:1.1rem;font-weight:600;}
-  .faixa strong{color:#ffd98a;}
+  /* hero brand illustration */
+  .hero-art{position:relative;background:var(--green-50);border:1px solid #d7e6c2;border-radius:var(--r);min-height:380px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .hero-art .disc{width:200px;height:200px;border-radius:50%;background:var(--white);box-shadow:0 14px 36px -18px rgba(39,80,10,.45);display:flex;align-items:center;justify-content:center;text-align:center}
+  .hero-art .disc .dt{font-family:var(--disp);color:var(--green-d);font-size:17px;font-weight:600;margin-top:6px;line-height:1.2}
+  .hero-art .disc svg{width:34px;height:34px;color:var(--green)}
+  .hero-art .chip{position:absolute;width:64px;height:64px;border-radius:18px;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -16px rgba(0,0,0,.35)}
+  .hero-art .chip svg{width:32px;height:32px}
+  .hero-art .c1{top:30px;left:50%;transform:translateX(-50%) rotate(-6deg)}
+  .hero-art .c2{top:104px;right:38px;transform:rotate(8deg)}
+  .hero-art .c3{bottom:78px;right:52px;transform:rotate(-7deg)}
+  .hero-art .c4{bottom:78px;left:52px;transform:rotate(7deg)}
+  .hero-art .c5{top:104px;left:38px;transform:rotate(-9deg)}
+  .hero-art .tag{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--cream2);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:7px 15px;border-radius:999px}
 
-  /* ---------- Benefícios ---------- */
-  section{padding:64px 0;}
-  .titulo-secao{text-align:center;font-size:2rem;color:var(--verde-escuro);margin-bottom:12px;font-weight:800;}
-  .subtitulo-secao{text-align:center;color:var(--cinza);font-size:1.1rem;max-width:600px;margin:0 auto 44px;}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .card{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:30px 26px;}
-  .card .ico{font-size:2.4rem;margin-bottom:14px;display:block;}
-  .card h3{font-size:1.2rem;color:var(--verde-escuro);margin-bottom:8px;}
-  .card p{color:var(--cinza);font-size:1rem;}
+  /* toast */
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--cream2);padding:13px 22px;border-radius:999px;font-size:14px;font-weight:500;box-shadow:0 14px 34px -12px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:100;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-  /* ---------- Como funciona ---------- */
-  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:passo;}
-  .passo{text-align:center;padding:20px;}
-  .passo .num{
-    width:56px;height:56px;border-radius:50%;background:var(--verde);color:#fff;
-    font-size:1.5rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
-  }
-  .passo h3{color:var(--verde-escuro);margin-bottom:6px;}
-  .passo p{color:var(--cinza);}
+  /* sections */
+  section{padding:56px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 40px}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);margin:14px 0 12px}
+  .sec-head p{color:var(--body);font-size:18px}
 
-  /* ---------- Formulário ---------- */
-  .form-secao{background:var(--verde-claro);}
-  .form-box{
-    background:#fff;max-width:620px;margin:0 auto;border-radius:22px;
-    padding:40px;box-shadow:0 18px 40px -22px rgba(30,81,40,.4);border:1px solid var(--borda);
-  }
-  .form-box h2{color:var(--verde-escuro);font-size:1.7rem;margin-bottom:6px;text-align:center;}
-  .form-box .ajuda{text-align:center;color:var(--cinza);margin-bottom:28px;}
-  .campo{margin-bottom:18px;}
-  .campo label{display:block;font-weight:600;margin-bottom:6px;font-size:.95rem;}
-  .campo label .obrig{color:var(--terra);}
-  .campo input,.campo select{
-    width:100%;padding:13px 14px;border:1px solid var(--borda);border-radius:10px;
-    font-size:1rem;font-family:inherit;background:#fcfdfc;
-  }
-  .campo input:focus,.campo select:focus{outline:none;border-color:var(--verde);background:#fff;}
-  .linha{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  .consent{display:flex;gap:10px;align-items:flex-start;margin:6px 0 22px;font-size:.88rem;color:var(--cinza);}
-  .consent input{margin-top:4px;width:18px;height:18px;flex-shrink:0;}
-  .form-box .btn{width:100%;}
-  .erro{color:#c0392b;font-size:.85rem;margin-top:4px;display:none;}
-  .sucesso{display:none;text-align:center;padding:30px 10px;}
-  .sucesso .check{font-size:3.5rem;}
-  .sucesso h2{color:var(--verde-escuro);margin:10px 0;}
-  .sucesso p{color:var(--cinza);font-size:1.05rem;}
+  .band{background:var(--green);color:var(--cream2);text-align:center}
+  .band .eyebrow{color:var(--green-50)}
+  .band h2{color:var(--cream2)}
+  .band p{color:rgba(251,247,238,.88)}
 
-  /* ---------- Rodapé ---------- */
-  footer{background:var(--verde-escuro);color:#cfe3d3;padding:40px 0;text-align:center;font-size:.95rem;}
-  footer .logo{color:#fff;justify-content:center;margin-bottom:10px;}
-  footer a{color:#ffd98a;}
+  /* steps */
+  .steps{display:grid;gap:20px;counter-reset:step}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px}
+  .step .num{font-family:var(--disp);font-size:30px;font-weight:600;color:var(--terra);line-height:1}
+  .step h3{font-size:20px;margin:14px 0 8px}
+  .step p{font-size:15.5px;color:var(--body)}
 
-  /* ---------- Responsivo ---------- */
-  @media(max-width:820px){
-    .hero-grid{grid-template-columns:1fr;gap:32px;}
-    .hero h1{font-size:2.1rem;}
-    .hero-img{aspect-ratio:16/9;font-size:4rem;}
-    .cards,.passos{grid-template-columns:1fr;}
-    .linha{grid-template-columns:1fr;}
-    .header .btn{display:none;}
-    .form-box{padding:28px 22px;}
-  }
+  /* pilares */
+  .pillars{display:grid;gap:20px}
+  @media(min-width:760px){.pillars{grid-template-columns:repeat(3,1fr)}}
+  .pillar{border-radius:20px;padding:30px 28px;border:1px solid var(--line);position:relative;overflow:hidden}
+  .pillar .pic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .pillar .pic svg{width:28px;height:28px}
+  .pillar h3{font-size:21px;margin-bottom:8px}
+  .pillar p{font-size:15.5px;color:var(--body)}
+  .pillar.p-verde{background:var(--green-50);border-color:#d7e6c2}
+  .pillar.p-verde .pic{background:var(--green);color:var(--cream2)}
+  .pillar.p-terra{background:var(--terra-50);border-color:#efd6cc}
+  .pillar.p-terra .pic{background:var(--terra);color:#fff}
+  .pillar.p-gold{background:var(--gold-50);border-color:#eedcbc}
+  .pillar.p-gold .pic{background:var(--gold);color:#fff}
+
+  /* benefits */
+  .benefits{display:grid;gap:18px}
+  @media(min-width:680px){.benefits{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.benefits{grid-template-columns:repeat(3,1fr)}}
+  .benefit{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+  .benefit .ic{width:44px;height:44px;border-radius:12px;background:var(--green-50);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .benefit .ic svg{width:24px;height:24px;color:var(--green-d)}
+  .benefit h3{font-size:18px;margin-bottom:6px}
+  .benefit p{font-size:15px;color:var(--body)}
+
+  /* destaque 25% */
+  .flexbox{background:var(--terra-50);border:1px solid #efd6cc;border-radius:20px;padding:38px 32px;text-align:center;max-width:760px;margin:0 auto}
+  .flexbox .big{font-family:var(--disp);font-weight:700;color:var(--terra);font-size:clamp(46px,9vw,72px);line-height:1;display:block;margin-bottom:6px}
+  .flexbox h2{color:var(--terra-d);font-size:clamp(24px,4vw,32px);margin-bottom:12px}
+  .flexbox p{font-size:18px;color:var(--terra-d);max-width:46ch;margin:0 auto}
+
+  /* formulário */
+  .form-band{background:var(--green-50)}
+  .form-box{background:var(--white);max-width:620px;margin:0 auto;border:1px solid var(--line);border-radius:20px;padding:38px;box-shadow:0 18px 40px -26px rgba(16,55,36,.5)}
+  .form-box h2{font-size:clamp(26px,4vw,34px);text-align:center;margin-bottom:8px}
+  .form-box .ajuda{text-align:center;color:var(--muted);margin-bottom:28px}
+  .campo{margin-bottom:18px}
+  .campo label{display:block;font-weight:600;margin-bottom:7px;font-size:14.5px;color:var(--ink)}
+  .campo label .obrig{color:var(--terra)}
+  .campo input,.campo select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:16px;font-family:inherit;color:var(--ink);background:var(--cream2)}
+  .campo input::placeholder{color:#b3a98f}
+  .campo input:focus,.campo select:focus{outline:none;border-color:var(--green);background:var(--white)}
+  .linha{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.linha{grid-template-columns:1fr}}
+  .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 22px;font-size:13.5px;color:var(--muted);line-height:1.5}
+  .consent input{margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--green)}
+  .form-box .btn{width:100%}
+  .erro{color:var(--terra-d);font-size:13px;margin-top:5px;display:none}
+  .sucesso{display:none;text-align:center;padding:24px 8px}
+  .sucesso .ok{width:72px;height:72px;border-radius:50%;background:var(--green-50);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .sucesso .ok svg{width:38px;height:38px;color:var(--green)}
+  .sucesso h2{margin-bottom:10px}
+  .sucesso p{color:var(--body);font-size:17px;max-width:42ch;margin:0 auto}
+
+  /* faq */
+  .faq{max-width:760px;margin:0 auto}
+  details{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:0;margin-bottom:12px;overflow:hidden}
+  summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:600;font-size:17px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--sans)}
+  summary::-webkit-details-marker{display:none}
+  summary .chev{flex:none;transition:transform .2s ease;color:var(--green)}
+  details[open] summary .chev{transform:rotate(180deg)}
+  details .ans{padding:0 24px 22px;color:var(--body);font-size:15.5px}
+
+  /* final cta */
+  .final{background:var(--green);color:var(--cream2);text-align:center;border-radius:24px;padding:54px 28px;margin:0 22px}
+  .final .brandmark{height:46px;width:auto;margin:0 auto 20px;display:block;border-radius:0}
+  .final h2{color:var(--cream2);font-size:clamp(28px,4.5vw,42px);margin-bottom:14px}
+  .final p{color:rgba(251,247,238,.9);font-size:18px;max-width:42ch;margin:0 auto 28px}
+  .final .btn-primary{background:var(--cream2);color:var(--green-d)}
+  .final .btn-primary:hover{background:#fff}
+  .final .btn-ghost{color:var(--cream2);border-color:rgba(251,247,238,.6)}
+  .final .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .final-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+  /* footer */
+  footer{padding:46px 0 40px;text-align:center;color:var(--muted);font-size:14px}
+  footer .logo img{height:54px;margin:0 auto 10px;border-radius:0}
+  footer .fnav{display:flex;gap:22px;justify-content:center;margin:16px 0;font-weight:500;color:var(--body)}
+  footer .fnav a:hover{color:var(--green)}
+
+  /* barra fixa mobile */
+  .mobar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 -8px 24px -16px rgba(0,0,0,.3)}
+  .mobar .mb-txt{font-family:var(--disp);font-weight:600;color:var(--ink);font-size:16px;line-height:1.15}
+  .mobar .mb-txt small{display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--muted)}
+  .mobar .btn{padding:12px 22px;font-size:15px;white-space:nowrap}
+  @media(min-width:860px){.mobar{display:none}}
+  @media(max-width:859px){body{padding-bottom:74px}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<!-- ===================== CABEÇALHO ===================== -->
 <header>
-  <div class="header-inner">
-    <div class="logo"><span>🥬</span> Orgânico do Chico</div>
-    <a href="#cadastro" class="btn">Quero condições especiais</a>
+  <div class="nav">
+    <a href="#topo" class="logo"><img src="logo-organico-do-chico-verde.png" alt="Orgânico do Chico"></a>
+    <nav class="nav-links">
+      <a href="#como">Como funciona</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a href="#cadastro" class="btn btn-primary">Cadastrar</a>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
+<a id="topo"></a>
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Orgânico de verdade na cozinha do <em>seu restaurante</em></h1>
-      <p class="sub">Frutas, legumes e verduras orgânicas, colhidas perto de BH e entregues direto no seu estabelecimento. Qualidade que o seu cliente sente no prato.</p>
-      <div class="hero-tags">
-        <span class="tag">✔ 100% orgânico certificado</span>
-        <span class="tag">✔ Entrega na RMBH</span>
-        <span class="tag">✔ 25% de desconto para CNPJ</span>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        Orgânico para Foodservice
+      </span>
+      <h1>Orgânico de verdade na cozinha do <em>seu restaurante</em>.</h1>
+      <p class="lead">Frutas, legumes e verduras orgânicas, colhidas perto de BH e entregues direto no seu estabelecimento. Qualidade que o seu cliente sente no prato.</p>
+      <div class="hero-cta">
+        <a href="#cadastro" class="btn btn-primary">Cadastrar meu CNPJ</a>
+        <a href="https://wa.me/55SEUNUMERO?text=Ol%C3%A1!%20Tenho%20um%20restaurante%20e%20quero%20saber%20mais%20sobre%20comprar%20org%C3%A2nicos%20com%20voc%C3%AAs." class="btn btn-ghost">Falar no WhatsApp</a>
       </div>
-      <a href="#cadastro" class="btn btn-grande">Cadastrar meu restaurante</a>
+      <p class="hero-note">Cadastro em 1 minuto · só CNPJ · cupom de 25% no WhatsApp</p>
     </div>
-    <div class="hero-img">🍅🥕🥦</div>
+    <div class="reveal">
+      <!-- HERÓI: ilustração de marca. Para usar foto real, troque toda esta div .hero-art por:
+           <img src="sua-foto.jpg" alt="Hortifrúti orgânico para restaurantes"> -->
+      <div class="hero-art">
+        <div class="disc"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg><div class="dt">Direto<br>da roça</div></div></div>
+        <div class="chip c1"><svg viewBox="0 0 24 24" fill="none" stroke="#1C5A3A" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+        <div class="chip c2"><svg viewBox="0 0 24 24" fill="none" stroke="#C2542B" stroke-width="1.8"><circle cx="12" cy="14" r="7"/><path d="M12 7c0-2 1-3 3-3M12 7c0-2-1-3-3-3M12 7V4"/></svg></div>
+        <div class="chip c3"><svg viewBox="0 0 24 24" fill="none" stroke="#B0750F" stroke-width="1.8"><path d="M12 7c-1.6-2.2-5.2-2-6.2 1.1C4.7 11.4 7 18 11 20c.7.4 1.3.4 2 0 4-2 6.3-8.6 5.2-11.9C17 5 13.6 4.8 12 7Z"/><path d="M12 7V4c0-1 .8-2 2-2"/></svg></div>
+        <div class="chip c4"><svg viewBox="0 0 24 24" fill="none" stroke="#633806" stroke-width="1.8"><ellipse cx="12" cy="13" rx="6" ry="8"/></svg></div>
+        <div class="chip c5"><svg viewBox="0 0 24 24" fill="none" stroke="#B0750F" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/></svg></div>
+        <div class="tag">Colhido fresco · BH</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== FAIXA ===================== -->
-<div class="faixa">
-  Cadastre o CNPJ do seu estabelecimento e ganhe <strong>25% de desconto</strong> para comprar direto no nosso site.
-</div>
+<section class="band reveal">
+  <div class="wrap">
+    <span class="eyebrow">Para quem cozinha todo dia</span>
+    <h2 style="margin:14px 0 14px">Um fornecedor de orgânico no qual dá pra confiar</h2>
+    <p style="max-width:660px;margin:0 auto;font-size:18px">Restaurante bom começa no ingrediente. A gente seleciona o melhor do hortifrúti orgânico da estação e entrega direto na sua cozinha — com a regularidade e a qualidade que a sua operação precisa.</p>
+  </div>
+</section>
 
-<!-- ===================== BENEFÍCIOS ===================== -->
+<section id="como">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Três passos e pronto</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="num">1</div><h3>Cadastre seu CNPJ</h3><p>Preencha o formulário com os dados do seu estabelecimento. Leva menos de 1 minuto.</p></div>
+      <div class="step"><div class="num">2</div><h3>Receba seu cupom</h3><p>A gente confere o cadastro e te envia o cupom de 25% de desconto pelo WhatsApp.</p></div>
+      <div class="step"><div class="num">3</div><h3>Compre no site</h3><p>Use o cupom direto na nossa loja online e receba o pedido no seu restaurante.</p></div>
+    </div>
+  </div>
+</section>
+
 <section>
-  <div class="container">
-    <h2 class="titulo-secao">Por que comprar com a gente</h2>
-    <p class="subtitulo-secao">Um fornecedor de hortifruti orgânico pensado para quem cozinha todo dia.</p>
-    <div class="cards">
-      <div class="card">
-        <span class="ico">🌱</span>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Por que comprar com a gente</span>
+      <h2>Orgânico que faz diferença no prato</h2>
+      <p>Mais do que hortifrúti: um parceiro pensado para a rotina de quem cozinha em escala.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar p-verde">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
         <h3>Orgânico certificado</h3>
-        <p>Produtos sem agrotóxico, com sabor e durabilidade que fazem diferença no seu cardápio.</p>
+        <p>Sem agrotóxico, com sabor e durabilidade que rendem mais na sua cozinha e aparecem no prato.</p>
       </div>
-      <div class="card">
-        <span class="ico">🚚</span>
+      <div class="pillar p-terra">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
         <h3>Entrega na sua porta</h3>
-        <p>Atendemos Belo Horizonte e região. Você recebe sem precisar sair da cozinha.</p>
+        <p>Atendemos Belo Horizonte e região. Você recebe sem parar a operação para ir ao mercado.</p>
       </div>
-      <div class="card">
-        <span class="ico">💸</span>
-        <h3>Preço de quem compra sempre</h3>
-        <p>Cadastrando seu CNPJ, você ganha condições especiais que não existem na loja comum.</p>
-      </div>
-      <div class="card">
-        <span class="ico">🛒</span>
-        <h3>Pedido fácil, quando quiser</h3>
-        <p>Compre direto pelo nosso site, no seu tempo, com a praticidade de um e-commerce.</p>
-      </div>
-      <div class="card">
-        <span class="ico">📦</span>
-        <h3>Variedade de hortifruti</h3>
-        <p>Frutas, legumes, verduras e folhas frescas para abastecer toda a sua operação.</p>
-      </div>
-      <div class="card">
-        <span class="ico">🤝</span>
-        <h3>Produtor local</h3>
-        <p>Apoie o orgânico da região e ofereça uma história que valoriza o seu prato.</p>
+      <div class="pillar p-gold">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+        <h3>Condição de quem compra sempre</h3>
+        <p>Cadastrando seu CNPJ, você ganha 25% de desconto — uma condição que não existe na loja comum.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== COMO FUNCIONA ===================== -->
-<section style="background:#fff;">
-  <div class="container">
-    <h2 class="titulo-secao">Como funciona</h2>
-    <p class="subtitulo-secao">Três passos para começar a comprar com condição de foodservice.</p>
-    <div class="passos">
-      <div class="passo">
-        <div class="num">1</div>
-        <h3>Cadastre seu CNPJ</h3>
-        <p>Preencha o formulário abaixo com os dados do seu estabelecimento. Leva menos de 1 minuto.</p>
-      </div>
-      <div class="passo">
-        <div class="num">2</div>
-        <h3>Receba seu cupom</h3>
-        <p>A gente confere o cadastro e te envia o cupom de 25% de desconto no seu WhatsApp.</p>
-      </div>
-      <div class="passo">
-        <div class="num">3</div>
-        <h3>Compre no site</h3>
-        <p>Use o cupom direto na nossa loja online e receba o pedido no seu restaurante.</p>
-      </div>
+<section>
+  <div class="wrap reveal">
+    <div class="flexbox">
+      <span class="eyebrow" style="color:var(--terra)">Exclusivo para CNPJ</span>
+      <span class="big">25%</span>
+      <h2>de desconto em tudo</h2>
+      <p>Cadastre o CNPJ do seu estabelecimento e ganhe 25% de desconto para comprar direto no nosso site, no seu tempo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="vantagens">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Vantagens</span>
+      <h2>Pensado para a sua operação</h2>
+    </div>
+    <div class="benefits reveal">
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div><h3>100% orgânico</h3><p>Produtos sem agrotóxico, com sabor e qualidade que valorizam o seu cardápio.</p></div>
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><h3>Entrega na cozinha</h3><p>Belo Horizonte e região. Você recebe sem sair da operação.</p></div>
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 12.5 11 14l3.5-3.5"/></svg></div><h3>25% de desconto</h3><p>Condição exclusiva de foodservice para quem cadastra o CNPJ.</p></div>
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div><h3>Pedido fácil, quando quiser</h3><p>Compre direto pelo site, no seu tempo, com a praticidade de um e-commerce.</p></div>
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h4"/></svg></div><h3>Variedade de hortifrúti</h3><p>Frutas, legumes, verduras e folhas frescas para abastecer toda a operação.</p></div>
+      <div class="benefit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>Produtor local</h3><p>Apoie o orgânico da região e ofereça uma história que valoriza o seu prato.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===================== FORMULÁRIO ===================== -->
-<section class="form-secao" id="cadastro">
-  <div class="container">
-    <div class="form-box">
-      <!-- Estado: formulário -->
+<section class="form-band" id="cadastro">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:28px">
+      <span class="eyebrow">Cadastro</span>
+      <h2>Cadastre seu estabelecimento</h2>
+      <p>Preencha os dados e a gente entra em contato com o seu cupom de 25%.</p>
+    </div>
+    <div class="form-box reveal">
       <div id="form-conteudo">
-        <h2>Cadastre seu estabelecimento</h2>
-        <p class="ajuda">Preencha os dados e a gente entra em contato com o seu cupom.</p>
         <form id="form-cadastro" novalidate>
           <div class="campo">
             <label>Nome do estabelecimento <span class="obrig">*</span></label>
@@ -295,34 +406,91 @@
             <span>Autorizo o Orgânico do Chico a entrar em contato comigo pelos dados informados e a guardar essas informações para envio do cupom e ofertas. (LGPD)</span>
           </label>
 
-          <button type="submit" class="btn" id="btn-enviar">Quero meu cupom de desconto</button>
+          <button type="submit" class="btn btn-primary" id="btn-enviar">Quero meu cupom de 25%</button>
         </form>
       </div>
 
-      <!-- Estado: sucesso -->
       <div class="sucesso" id="sucesso">
-        <div class="check">✅</div>
+        <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></div>
         <h2>Cadastro recebido!</h2>
-        <p>Obrigado! Em breve a gente entra em contato pelo WhatsApp com o seu cupom de 25% de desconto. 🥦</p>
+        <p>Obrigado! Em breve a gente entra em contato pelo WhatsApp com o seu cupom de 25% de desconto. 🌿</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== RODAPÉ ===================== -->
+<section id="duvidas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Tudo que você precisa saber</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Quem pode se cadastrar? <span class="chev">▾</span></summary><div class="ans">Estabelecimentos com CNPJ: restaurantes, bares, lanchonetes, cafeterias, padarias, hotéis, buffets e empórios. O desconto é uma condição exclusiva para foodservice.</div></details>
+      <details><summary>Vocês entregam no meu endereço? <span class="chev">▾</span></summary><div class="ans">Atendemos Belo Horizonte e região. Para confirmar se já chegamos ao seu endereço, é só falar com a gente no WhatsApp.<!-- ajuste/confirme as regiões atendidas --></div></details>
+      <details><summary>Como funciona o desconto de 25%? <span class="chev">▾</span></summary><div class="ans">Depois do cadastro, a gente te envia um cupom de desconto pelo WhatsApp. Você usa o cupom direto no nosso site e a compra já sai com 25% de desconto.<!-- confirme as condições do cupom (validade, pedido mínimo etc.) --></div></details>
+      <details><summary>Tem pedido mínimo? <span class="chev">▾</span></summary><div class="ans">Para garantir a entrega, trabalhamos com um valor mínimo de pedido. A gente confirma o valor da sua região no contato pelo WhatsApp.<!-- defina e confirme o pedido mínimo --></div></details>
+      <details><summary>Como faço o pedido? <span class="chev">▾</span></summary><div class="ans">Direto pela nossa loja online, no horário que for melhor pra você. É só aplicar o cupom no carrinho e finalizar.</div></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="final reveal">
+    <img class="brandmark" src="logo-organico-do-chico-branco.png" alt="Orgânico do Chico">
+    <h2>Orgânico de verdade na sua cozinha</h2>
+    <p>Cadastre o CNPJ do seu estabelecimento e ganhe 25% de desconto pra comprar direto no site.</p>
+    <div class="final-cta">
+      <a href="#cadastro" class="btn btn-primary">Cadastrar meu CNPJ</a>
+      <a href="https://wa.me/55SEUNUMERO?text=Ol%C3%A1!%20Tenho%20um%20restaurante%20e%20quero%20comprar%20org%C3%A2nicos%20com%20voc%C3%AAs." class="btn btn-ghost">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <div class="container">
-    <div class="logo"><span>🥬</span> Orgânico do Chico</div>
-    <p>Hortifruti orgânico em Belo Horizonte e região.</p>
-    <p style="margin-top:8px;"><a href="https://www.organicodochico.com.br" target="_blank">organicodochico.com.br</a></p>
+  <div class="wrap">
+    <div class="logo"><img src="logo-organico-do-chico-verde.png" alt="Orgânico do Chico"></div>
+    <p>Hortifrúti orgânico para foodservice — Belo Horizonte e região.</p>
+    <div class="fnav">
+      <a href="https://www.organicodochico.com.br" target="_blank" rel="noopener">Loja</a>
+      <a href="https://wa.me/55SEUNUMERO">WhatsApp</a>
+      <a href="#cadastro">Cadastrar</a>
+    </div>
+    <p style="font-size:13px">© <span id="ano"></span> Orgânico do Chico</p>
   </div>
 </footer>
 
+<div class="mobar">
+  <div class="mb-txt">25% de desconto<small>exclusivo para CNPJ</small></div>
+  <a href="#cadastro" class="btn btn-primary">Cadastrar</a>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
 <script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // toast helper
+  var toast = document.getElementById('toast');
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2800); }
+
+  // WhatsApp em configuração: enquanto o número for placeholder, mostra aviso
+  document.querySelectorAll('a[href]').forEach(function(a){
+    if((a.getAttribute('href')||'').indexOf('SEUNUMERO') > -1){
+      a.addEventListener('click', function(e){ e.preventDefault(); showToast('WhatsApp em configuração — disponível em breve'); });
+    }
+  });
+
   // ---------- Máscara de CNPJ ----------
-  const cnpj = document.getElementById('cnpj');
-  cnpj.addEventListener('input', () => {
-    let v = cnpj.value.replace(/\D/g,'').slice(0,14);
+  var cnpj = document.getElementById('cnpj');
+  cnpj.addEventListener('input', function(){
+    var v = cnpj.value.replace(/\D/g,'').slice(0,14);
     v = v.replace(/^(\d{2})(\d)/,'$1.$2');
     v = v.replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3');
     v = v.replace(/\.(\d{3})(\d)/,'.$1/$2');
@@ -331,9 +499,9 @@
   });
 
   // ---------- Máscara de WhatsApp ----------
-  const wpp = document.getElementById('whatsapp');
-  wpp.addEventListener('input', () => {
-    let v = wpp.value.replace(/\D/g,'').slice(0,11);
+  var wpp = document.getElementById('whatsapp');
+  wpp.addEventListener('input', function(){
+    var v = wpp.value.replace(/\D/g,'').slice(0,11);
     if(v.length > 6) v = v.replace(/^(\d{2})(\d{5})(\d)/,'($1) $2-$3');
     else if(v.length > 2) v = v.replace(/^(\d{2})(\d)/,'($1) $2');
     else if(v.length > 0) v = v.replace(/^(\d)/,'($1');
@@ -341,44 +509,43 @@
   });
 
   // ---------- Validação + envio ----------
-  const form = document.getElementById('form-cadastro');
-  const btn = document.getElementById('btn-enviar');
+  var form = document.getElementById('form-cadastro');
+  var btn = document.getElementById('btn-enviar');
 
   function mostraErro(input, mostrar){
-    const erro = input.parentElement.querySelector('.erro');
+    var erro = input.parentElement.querySelector('.erro');
     if(erro) erro.style.display = mostrar ? 'block' : 'none';
-    input.style.borderColor = mostrar ? '#c0392b' : '';
+    input.style.borderColor = mostrar ? '#C2542B' : '';
   }
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
-    let ok = true;
-
-    const estab = form.estabelecimento;
-    const resp  = form.responsavel;
-    const consent = document.getElementById('consent');
+    var ok = true;
+    var estab = form.estabelecimento;
+    var resp  = form.responsavel;
+    var consent = document.getElementById('consent');
 
     if(!estab.value.trim()){ mostraErro(estab,true); ok=false; } else mostraErro(estab,false);
     if(!resp.value.trim()){ mostraErro(resp,true); ok=false; } else mostraErro(resp,false);
 
-    const cnpjDigitos = cnpj.value.replace(/\D/g,'');
+    var cnpjDigitos = cnpj.value.replace(/\D/g,'');
     if(cnpjDigitos.length !== 14){ mostraErro(cnpj,true); ok=false; } else mostraErro(cnpj,false);
 
-    const wppDigitos = wpp.value.replace(/\D/g,'');
+    var wppDigitos = wpp.value.replace(/\D/g,'');
     if(wppDigitos.length < 10){ mostraErro(wpp,true); ok=false; } else mostraErro(wpp,false);
 
-    const email = form.email;
+    var email = form.email;
     if(email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ mostraErro(email,true); ok=false; }
     else mostraErro(email,false);
 
-    if(!consent.checked){ alert('Por favor, marque a autorização de contato para continuar.'); ok=false; }
+    if(!consent.checked){ showToast('Marque a autorização de contato para continuar.'); ok=false; }
 
     if(!ok) return;
 
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    const dados = {
+    var dados = {
       estabelecimento: estab.value.trim(),
       cnpj: cnpj.value.trim(),
       responsavel: resp.value.trim(),
@@ -389,7 +556,7 @@
     };
 
     try {
-      if (URL_PLANILHA && !URL_PLANILHA.startsWith('COLE_AQUI')) {
+      if (URL_PLANILHA && URL_PLANILHA.indexOf('COLE_AQUI') === -1) {
         await fetch(URL_PLANILHA, {
           method: 'POST',
           mode: 'no-cors',
@@ -399,14 +566,13 @@
       } else {
         console.warn('URL_PLANILHA não configurada — cadastro não foi salvo. Veja o LEIA-ME.');
       }
-      // Mostra sucesso (no-cors não deixa ler resposta, então assumimos sucesso)
       document.getElementById('form-conteudo').style.display = 'none';
       document.getElementById('sucesso').style.display = 'block';
       document.getElementById('sucesso').scrollIntoView({behavior:'smooth', block:'center'});
     } catch(err){
-      alert('Ops, não conseguimos enviar agora. Tente novamente ou chame a gente no WhatsApp.');
+      showToast('Não conseguimos enviar agora. Tente novamente.');
       btn.disabled = false;
-      btn.textContent = 'Quero meu cupom de desconto';
+      btn.textContent = 'Quero meu cupom de 25%';
     }
   });
 </script>
