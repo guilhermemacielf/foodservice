@@ -382,9 +382,9 @@
           </div>
 
           <div class="campo">
-            <label>E-mail</label>
-            <input type="email" name="email" placeholder="contato@seurestaurante.com.br">
-            <div class="erro">Informe um e-mail válido.</div>
+            <label>E-mail <span class="obrig">*</span></label>
+            <input type="email" name="email" required placeholder="contato@seurestaurante.com.br">
+            <div class="erro">Informe um e-mail válido — é nele que o seu cupom fica vinculado.</div>
           </div>
 
           <div class="campo">
@@ -537,7 +537,7 @@
     if(wppDigitos.length < 10){ mostraErro(wpp,true); ok=false; } else mostraErro(wpp,false);
 
     var email = form.email;
-    if(email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ mostraErro(email,true); ok=false; }
+    if(!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ mostraErro(email,true); ok=false; }
     else mostraErro(email,false);
 
     if(!consent.checked){ showToast('Marque a autorização de contato para continuar.'); ok=false; }
